@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name = "viewport" content="width=device-width, initial-scale=1.0">
+    <title>COVID-19 API</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+</head> 
+<body>
+    <div class="container">
+        <h1 class="text-center mt-5">COVID-19 live data tracker</h1>
+        <h5 class="text-center mt-3">By Hashim Iqbal</h5>
+        <br><br>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Global Cases</th>
+                <th scope="col">Global Deaths</th>
+                <th scope="col">Global Recovered</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr id="globaldata">
+
+              </tr>
+            </tbody>
+          </table>
+
+          <br><br>
+
+          <button onclick="RefreshData()" class="btn btn-outline-success btn-block btn-lrg">
+            Refresh Data
+        </button>
+    </div>
+
+
+
+
+</body>
+<br><br>
+<footer>
+<p class="text-danger" style="text-align: center;">Api used: <a href = "https://api.covid19api.com/summary">Click here</a></p> 
+<p class="text-danger" style="text-align: center;">All data sourced from <a href="https://coronavirus.jhu.edu/">Johns Hopkins University</a></p>
+</footer>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>   
+<script>
+
+    initTopTable()
+
+    function initTopTable() {
+        var url = "https://api.covid19api.com/summary"
+
+        var globaldata = ""
+
+        $.get(url,function(globaldata){
+            console.log(globaldata.Global);
+
+            globaldata = `
+
+            <td>${globaldata.Global.TotalConfirmed}</td>
+            <td>${globaldata.Global.TotalDeaths}</td>
+            <td>${globaldata.Global.TotalRecovered}</td>
+            
+            `
+
+            $("#globaldata").html(globaldata)
+            
+        })
+    }
+
+    
+
+    function RefreshData() {
+        clearData()
+        initTopTable()
+    }
+
+    function clearData() {
+        $("#globaldata").empty()
+    }
+
+
+</script>
+</html>
