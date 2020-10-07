@@ -12,6 +12,8 @@ There were also a number of development changes that occured during the course o
 
 Ultimately, I decided to settle for regular JS, as it was the most familiar to me, and the code was easier to digest and understand. I covered the various drawbacks and advantages of the different frameworks in my final paper, but it should be noted that I will also upload the 'prototypes' developed using React, JQuery and Vue to this repo, alongside the final product written in plain JavaScript. 
 
+Check out the different folders to see the prototypes I made with these different libraries. I'll include separate text files that go into more detail for each.
+
 That's the gist of the project, and the information of everything you can find in this repo. This project has been a really valuable and fun experience to venture outside of my safe zone and try out different frameworks in back-end development that, up until now, I had no prior experience with. I hope you enjoy it! :)
 
 -Hashim 
