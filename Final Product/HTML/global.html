@@ -1,0 +1,115 @@
+<!-- global.html -->
+<!-- Hashim I. -->
+
+<!DOCTYPE html>
+<html>
+
+    <!-- Note: Linking to multiple stylesheets is possible, allowing for multiple applications of style rules -->
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="global.css">
+        <title>COVID-19 Statistics</title>
+    </head>
+
+
+    <body>
+
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="global.html">Global<img style="margin-left: 10px;" height="30px" width="30px" src="globe.png"></a>
+            <a href="countries.html">Countries<img style="margin-left: 10px;" height="35px" width="30px" src="pin.png"></a>
+            <a href="sir.html">SIR<img style="margin-left: 10px;" height="30px" width="30px" src="graph.png"></a>
+            <a href="resources.html">Resources<img style="margin-left: 10px;" height="30px" width="30px" src="folder.png"></a>
+          </div>
+          
+        <span id="menu" onclick="openNav()"><img height="50px" width="50px" src="sidenav.png"></span>
+
+        <div class="title">
+        <h1>COVID-19 Global Information</h1>
+        <br>
+        <span id="today" style="font-size: 15px; color: turquoise;"></span>
+        </div>
+
+        <br><br>
+        <br><br>
+        <br><br>
+
+        <div class="firstHalf">
+           
+            <div class="chartContainer">
+            <canvas id="globalChart"></canvas>
+            </div>
+
+        </div>
+
+        <div class="secondHalf">
+
+        <div class="mainStats">
+
+            <h2>Global Cases</h2>
+            <p id="TotalConfirmed"></p>
+
+            <h2>Global Deaths</h2>
+            <p id="TotalDeaths"></p>
+ 
+            <h2>Global Recoveries</h2>
+            <p id="TotalRecovered"></p>
+                
+        </div>
+        
+
+        <div class="secondStats">
+
+            <h2>Mortality Rate (%)</h2>
+            <p id="MortalityRate"> </p>
+
+            <h2>Active Cases</h2>
+            <p id="ActiveCases"></p>
+
+        </div>
+
+        </div>
+
+
+        <div class="update">
+            <p>This data was last updated on: <span id="LastUpdate"></span></p>
+        </div>
+
+        <br><br>
+        <br><br>
+        <br><br>
+        <br><br>
+
+        <button onclick="window.location.reload()" class="btn btn-outline-warning btn-block">Refresh</button>
+    
+    </body>
+
+    <br><br>
+    <br><br>
+
+
+    <footer class="footer">
+        <p>Built by Hashim I.</p>
+        <p><a class="text-success" href="https://api.covid19api.com/summary">API</a> used</p>
+        <p>This data was sourced by <a class="text-success" href="https://github.com/CSSEGISandData/COVID-19">Johns Hopkins University</a></p>
+    </footer>
+
+    <!-- Personal preference for me to have script outside of the <head> tags at the very end of the code-->
+    <script src='global.js'></script>
+
+    <!-- IMPORTANT: npm didn't work for installation. No idea why. Link works as substitute. Investigate later. -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+    <script>
+
+        //Since these are asynchronous functions, and the order for which one should be executed first has already been defined, it doesn't matter what order they're in now
+        chartinit();
+        getGlobalStats();
+
+        //Date() is a function which fetches the current date and time, this then gets written to a variable and id. 
+        const dt = new Date();
+        document.getElementById("today").innerHTML = dt;
+
+    </script>
+
+</html>
