@@ -8,9 +8,11 @@ While there is no quantitive correlation or coefficient that can draw a parallel
 
 That was the main focus of the project. What was going to set this tracker apart from others just like it? Creating a more comprehensive commentary on statistical info relating to the virus was really important.
 
-There were also a number of development changes that occured during the course of project, like experimenting with different frameworks for back-end development, like trying out libraries such as React, JQuery and Vue, comparing how they handled GET requests to the API, and deciding on what framework I wanted to settle on for the final product. 
+There were also a number of development changes that occured during the course of project, like experimenting with different frameworks for back-end development, like trying out libraries such as React and JQuery over regular JS, comparing how they handled GET requests to the API, and deciding on what framework I wanted to settle on for the final product. 
 
-Ultimately, I decided to settle for regular JS, as it was the most familiar to me, and the code was easier to digest and understand. I covered the various drawbacks and advantages of the different frameworks in my final paper, but it should be noted that I will also upload the 'prototypes' developed using React, JQuery and Vue to this repo, alongside the final product written in plain JavaScript. 
+Ultimately, I decided to settle for regular JS, as it was the most familiar to me, and the code was easier to digest and understand. I covered the various drawbacks and advantages of the different frameworks in my final paper, but it should be noted that I will also upload the 'prototypes' developed using React and JQuery frameworks to this repo, alongside the final product written in plain JavaScript. 
+
+I also did some Python work with the SIR modelling aspect of things. I'll go into a lot more detail in its own folder and the video to explain what I'm talking about. 
 
 Check out the different folders to see the prototypes I made with these different libraries. I'll include separate text files that go into more detail for each.
 
