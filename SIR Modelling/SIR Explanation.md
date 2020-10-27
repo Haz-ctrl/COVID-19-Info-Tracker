@@ -1,3 +1,5 @@
+#**SIR Explanation**
+
 This part of the project was really interesting! The main tool for predicting the effects of
 a pandemic on a population is compartmental modelling.
 
