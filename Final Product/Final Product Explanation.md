@@ -15,4 +15,4 @@ The 'SIR' page displays information about how the model works, and the algorithm
 
 The 'resources' page displays info about the APIs, libraries and other resources used over the project's development, with links to relevant documentation for each resource.
 
-The website is now live. Check it out here: 
+The website is now live and has been deployed to Heroku. Check it out here: 
