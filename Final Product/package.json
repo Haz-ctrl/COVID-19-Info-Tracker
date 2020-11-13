@@ -1,0 +1,20 @@
+{
+  "name": "covidapp",
+  "version": "1.0.0",
+  "description": "Coronavirus statistics app",
+  "engines": {
+    "node": "12.x"
+  },
+  "main": "app.js",
+  "dependencies": {
+    "chart.js": "^2.9.3",
+    "http-server": "^0.12.3",
+    "mime-types": "^2.1.27"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Hashim Iqbal",
+  "license": "UNLICENSED"
+}
