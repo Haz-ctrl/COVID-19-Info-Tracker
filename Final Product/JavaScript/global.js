@@ -26,6 +26,8 @@ async function getGlobalStats() {
     const data = await response.json();
     const {Global} = data;
 
+    console.log(data);
+
     let update = data.Date;
 
     // As always, these help to define what each statistic is. Numerical operators can be used.
@@ -35,7 +37,8 @@ async function getGlobalStats() {
     document.getElementById('TotalRecovered').textContent = (Global.TotalRecovered).toLocaleString('en');
     document.getElementById('MortalityRate').textContent = (Number(Global.TotalDeaths)/Number(Global.TotalConfirmed) * 100).toLocaleString('en', {minimumFractionDigits: 2, maximumFractionDigits: 2});
     document.getElementById('ActiveCases').textContent = (Number(Global.TotalConfirmed) - Number(Global.TotalDeaths + Global.TotalRecovered)).toLocaleString('en');
-    document.getElementById('LastUpdate').textContent = update.substr(0,10);
+    document.getElementById('UpdateDate').textContent = update.substr(0,10);
+    document.getElementById('UpdateTime').textContent = update.substr(11)
     
 }
 
