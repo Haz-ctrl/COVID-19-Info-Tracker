@@ -43,7 +43,7 @@ var server = HTTP.createServer(function(req, res) {
       console.log(`Returning ${path}`);
       res.setHeader('X-Content-Type-Options', 'nosniff');
 
-      //Condensing 50+ lines of code into 2 with 1 package!
+      //Condensing 50+ lines of code into 2 with 1 dependency!
       let mime = lookup(path);
       res.writeHead(200, {'Content-type': mime});
 
