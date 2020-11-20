@@ -16,6 +16,8 @@ I also did some Python work with the SIR modelling aspect of things. I'll go int
 
 Check out the different folders to see the prototypes I made with these different libraries. I'll include separate text files that go into more detail for each.
 
+The website is also now live on Heroku! Check it out here: https://coronavirus-stats-app.herokuapp.com/
+
 That's the gist of the project, and the information of everything you can find in this repo. This project has been a really valuable and fun experience to venture outside of my safe zone and try out different frameworks in back-end development that, up until now, I had no prior experience with. I hope you enjoy it! :)
 
 -Hashim 
