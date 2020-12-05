@@ -17,6 +17,9 @@ I also did some Python work with the SIR modelling aspect of things. I'll go int
 Check out the different folders to see the prototypes I made with these different libraries. I'll include separate text files that go into more detail for each.
 
 The website is also now live on Heroku! Check it out here: https://coronavirus-stats-app.herokuapp.com/
+I would highly recommend viewing the site on a desktop or laptop computer. If you are using mobile devices, media queries have been put in place to ensure a more comfortable experience, but viewing the site in landscape is highly recommended. 
+
+The site was designed on a computer, for a computer, but some users can still enjoy its features on mobile devices, albeit in a stranger setup. One day, I plan to design a solution specifically for mobile devices, but this will have to suffice for the time being. Thank you for understanding!
 
 That's the gist of the project, and the information of everything you can find in this repo. This project has been a really valuable and fun experience to venture outside of my safe zone and try out different frameworks in back-end development that, up until now, I had no prior experience with. I hope you enjoy it! :)
 
