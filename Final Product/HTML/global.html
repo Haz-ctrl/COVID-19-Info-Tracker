@@ -24,7 +24,7 @@
             <a href="resources.html">Resources<img style="margin-left: 10px;" height="30px" width="30px" src="folder.png"></a>
           </div>
           
-        <button id="menu" onclick="openNav()"><img height="50px" width="50px" src="sidenav.png"></button>
+        <button id="menu" onclick="openNav()"><img class="navImage" height="50px" width="50px" src="sidenav.png"></button>
 
         <div class="title">
         <h1>COVID-19 Global Page</h1>
@@ -39,10 +39,9 @@
             <canvas id="globalChart"></canvas>
         </div>
 
-        <div class="secondHalf">
 
+        <div class="secondHalf">
         <div class="stats">
-        <div class="mainStats">
 
             <h2>Global Cases</h2>
             <p id="TotalConfirmed"></p>
@@ -52,10 +51,6 @@
  
             <h2>Global Recoveries</h2>
             <p id="TotalRecovered"></p>
-                
-        </div>
-        
-        <div class="secondStats">
 
             <h2>Mortality Rate (%)</h2>
             <p id="MortalityRate"> </p>
@@ -63,7 +58,6 @@
             <h2>Active Cases</h2>
             <p id="ActiveCases"></p>
 
-        </div>
         </div>
         </div>
 
@@ -75,8 +69,7 @@
 
         <br><br>
         <br><br>
-        <br><br>
-        <br><br>
+ 
 
         <button onclick="window.location.reload()" class="btn btn-outline-warning btn-block">Refresh</button>
     
