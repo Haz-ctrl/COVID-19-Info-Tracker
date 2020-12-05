@@ -127,9 +127,9 @@ p {
 
   .firstHalf {
     display: block;
-    margin-right: 15px;
-    margin-left: 15px;
-    width: 350px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 675px;
     height: 350px;
   }
 
