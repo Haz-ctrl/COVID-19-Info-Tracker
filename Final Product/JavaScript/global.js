@@ -26,12 +26,10 @@ async function getGlobalStats() {
     const data = await response.json();
     const {Global} = data;
 
-    console.log(data);
-
     let update = data.Date;
 
-    // As always, these help to define what each statistic is. Numerical operators can be used.
-    // .toLocaleString is useful for large numbers like these, becase when they get converted to strings, commas are put after every 3 digits to make numbers more readable.
+    //Converts numbers to strings and maps out where they should be inserted.
+    //Whatever ID they are set to.
     document.getElementById('TotalConfirmed').textContent = (Global.TotalConfirmed).toLocaleString('en');
     document.getElementById('TotalDeaths').textContent = (Global.TotalDeaths).toLocaleString('en');
     document.getElementById('TotalRecovered').textContent = (Global.TotalRecovered).toLocaleString('en');
@@ -39,18 +37,6 @@ async function getGlobalStats() {
     document.getElementById('ActiveCases').textContent = (Number(Global.TotalConfirmed) - Number(Global.TotalDeaths + Global.TotalRecovered)).toLocaleString('en');
     document.getElementById('UpdateDate').textContent = update.substr(0,10);
     document.getElementById('UpdateTime').textContent = update.substr(11)
-    
-}
-
-// This asynchronous function will initialise and draw the doughnut chart using the chart.js library
-async function chartinit() {
-
-    await getGlobalStats();
-
-    // Fetch from the url, recognise it as JSON, and destructure it so that we're only looking at the 'global' part. 
-    const response = await fetch("https://api.covid19api.com/summary");
-    const data = await response.json();
-    const {Global} = data;
 
     const doughnutChart = new Chart(globalChart, {
         //bar, horizontalBar, pie, line, doughnut, radar, polarArea
@@ -76,4 +62,8 @@ async function chartinit() {
         options: {}
 
     })
+    
 }
+
+
+
