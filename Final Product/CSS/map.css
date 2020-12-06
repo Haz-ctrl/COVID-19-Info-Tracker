@@ -70,8 +70,8 @@ body {
   #marker {
     background-image: url('./dot.png');
     background-size: cover;
-    width: 5px;
-    height: 5px;
+    width: 8px;
+    height: 8px;
     border-radius: 50%;
     cursor: pointer;
   }
