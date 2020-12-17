@@ -24,7 +24,7 @@ var server = HTTP.createServer(function(req, res) {
   //remove the leading and trailing slashes
   let path = parsedURL.path.replace(/^\/+|\/+$/g, "");
   if (path == "") {
-    path = 'global.html';
+    path = 'home.html';
   }
 
   console.log(`Requested path ${path}`);
@@ -43,7 +43,7 @@ var server = HTTP.createServer(function(req, res) {
       console.log(`Returning ${path}`);
       res.setHeader('X-Content-Type-Options', 'nosniff');
 
-      //Condensing 50+ lines of code into 2 with 1 dependency!
+      //Condensing 50+ lines of code into 2 with 1 package!
       let mime = lookup(path);
       res.writeHead(200, {'Content-type': mime});
 
