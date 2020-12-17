@@ -26,25 +26,31 @@ async function getGlobalStats() {
     const data = await response.json();
     const {Global} = data;
 
+    //This stores the data points inside variables so they're easier to reference.
     let update = data.Date;
+    const total = Global.TotalConfirmed;
+    const deaths = Global.TotalDeaths;
+    const recoveries = Global.TotalRecovered;
+    const active = Number(Global.TotalConfirmed) - Number(Global.TotalDeaths + Global.TotalRecovered);
 
     //Converts numbers to strings and maps out where they should be inserted.
     //Whatever ID they are set to.
-    document.getElementById('TotalConfirmed').textContent = (Global.TotalConfirmed).toLocaleString('en');
-    document.getElementById('TotalDeaths').textContent = (Global.TotalDeaths).toLocaleString('en');
-    document.getElementById('TotalRecovered').textContent = (Global.TotalRecovered).toLocaleString('en');
+    document.getElementById('TotalConfirmed').textContent = (total).toLocaleString('en');
+    document.getElementById('TotalDeaths').textContent = (deaths).toLocaleString('en');
+    document.getElementById('TotalRecovered').textContent = (recoveries).toLocaleString('en');
     document.getElementById('MortalityRate').textContent = (Number(Global.TotalDeaths)/Number(Global.TotalConfirmed) * 100).toLocaleString('en', {minimumFractionDigits: 2, maximumFractionDigits: 2});
-    document.getElementById('ActiveCases').textContent = (Number(Global.TotalConfirmed) - Number(Global.TotalDeaths + Global.TotalRecovered)).toLocaleString('en');
+    document.getElementById('ActiveCases').textContent = (active).toLocaleString('en');
     document.getElementById('UpdateDate').textContent = update.substr(0,10);
     document.getElementById('UpdateTime').textContent = update.substr(11)
 
+    //Creates a dougnut chart using Chart.js which divides up each section by percentage of total cases.
     const doughnutChart = new Chart(globalChart, {
         //bar, horizontalBar, pie, line, doughnut, radar, polarArea
         type: 'doughnut', 
         data: {
             datasets: [{
                 label: 'People',
-                data: [Number(Global.TotalConfirmed) - Number(Global.TotalDeaths + Global.TotalRecovered), Global.TotalDeaths, Global.TotalRecovered],
+                data: [active, deaths, recoveries],
                 backgroundColor: [
                 '#00FFFF', '#EE82EE', '#83F52C'
             ]
@@ -56,10 +62,38 @@ async function getGlobalStats() {
                 'Global Deaths',
                 'Global Recoveries'
             ],
-
             
         },
-        options: {}
+
+        //This will allow a user to hover over 
+        options: {
+            legend: {
+                labels: {
+                    fontSize: 14
+                }
+            },
+            animation: {
+                animateScale: true,
+            },
+            cutoutPercentage: 55,
+            plugins: {
+                datalabels: {
+                    formatter: (value, globalChart) => {
+                        var sum = 0;
+                        var dataArr = globalChart.chart.data.datasets[0].data;
+                        dataArr.map(data => {
+                            sum += data;
+                        })
+                        var percentage = (value*100/sum).toFixed(2)+'%';
+                        return percentage;
+                    },
+                    color: '#000000',
+                    
+                }
+                
+            }
+
+        }
 
     })
     

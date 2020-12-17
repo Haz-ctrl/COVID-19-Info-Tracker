@@ -21,7 +21,7 @@ async function mapInit() {
   const data = await response.json()
 
   //Mapbox Credentials
-  mapboxgl.accessToken = 'pk.eyJ1IjoiaGF6LWN0cmwiLCJhIjoiY2tnbW9jeXpzMG02aTJxcnhob2ZrYTg2MyJ9.rM4dp2SRD-QTUmCtm8ZyLw';
+  mapboxgl.accessToken = 'pk.eyJ1IjoiaGF6LWN0cmwiLCJhIjoiY2tpZXZ5MTV4MDJ6ZzJ0bXA0MTVxa3BraCJ9.3I4CK1N3h1YeE0V_cf8w_Q';
 
   //Create a new map with dark them, 0, 40 center, and zoomed out to level 1.2.
   var map = new mapboxgl.Map({
