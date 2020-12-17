@@ -12,7 +12,7 @@ body {
     text-align: center;
 }
 
-p {
+p, a {
   font-size: 19px;
   font-weight: 200;
 }
@@ -76,9 +76,8 @@ p {
 }
 
 .chartContainer {
-  display: block;
-  width: 1700px;
-  height: 900px;
+  width: 95vw;
+  height: 50vh;
   margin-left: auto;
   margin-right: auto;
 }
@@ -86,8 +85,8 @@ p {
 .statsContainer {
   display: block;
   float: left;
-  width: 50%;
-  margin-top: 30px;
+  width: 40vw;
+  margin-top: 250px;
   margin-bottom: 60px;
   margin-left: 20px;
 }
@@ -110,35 +109,62 @@ p {
 
 /* Generally accepted screen size for mobile phones portrait or landscape */
 @media screen and (max-device-width: 640px){
+
   .chartContainer {
-    display: block;
-    width: 500px;
-    height: 450px;
+    display: none;
+  }
+
+  #menu {
+    margin-bottom: 15px;
+  }
+
+  .dropDown {
+    text-align: center;
   }
 
   .navImage {
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
+  }
+
+  .statsContainer {
+    display: block;
+    float: left;
+    width: 70vw;
+    margin-top: 1px;
+    margin-bottom: 60px;
+    margin-left: 20px;
+  }
+
+  .mainStats {
+    display: inline;
+    float: left;
+    margin-bottom: 40px;
+  }
+  
+  .secondStats {
+    display: inline;
+    float: right;
   }
 }
 
 /* Generally accepted screen size for tablets portrait or landscape */
 @media screen and (min-device-width: 768px) and (max-device-width: 1024px) {
-  .chartContainer {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 900px;
-    height: 450px;
-  }
-
   .navImage {
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
   }
 
-  .secondStats {
-    display: inline;
+  #menu {
+    margin-bottom: 15px;
+  }
+
+  .statsContainer {
+    display: block;
     float: left;
+    width: 70vw;
+    margin-top: 50px;
+    margin-bottom: 60px;
+    margin-left: 20px;
   }
 }
