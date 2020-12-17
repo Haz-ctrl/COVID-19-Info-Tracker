@@ -9,7 +9,6 @@
     <title>COVID-19 Statistics</title>
 
     <style>
-
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
             width: 100%;
@@ -25,19 +24,33 @@
             text-decoration: underline;
         }
 
-        .sidenav {
-            height: 100%; /* 100% Full-height */
-            width: 0; /* 0 width - change this with JavaScript */
-            position: fixed; /* Stay in place */
-            z-index: 1; /* Stay on top */
-            top: 0; /* Stay at the top */
-            left: 0;
-            background-color: #333; /* Black*/
-            overflow-x: hidden; /* Disable horizontal scroll */
-            padding-top: 60px; /* Place content 60px from the top */
-            transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+        a {
+            font-size: 19px;
+            font-weight: 200;
         }
-        
+
+        .sidenav {
+            height: 100%;
+            /* 100% Full-height */
+            width: 0;
+            /* 0 width - change this with JavaScript */
+            position: fixed;
+            /* Stay in place */
+            z-index: 1;
+            /* Stay on top */
+            top: 0;
+            /* Stay at the top */
+            left: 0;
+            background-color: #333;
+            /* Black*/
+            overflow-x: hidden;
+            /* Disable horizontal scroll */
+            padding-top: 60px;
+            /* Place content 60px from the top */
+            transition: 0.5s;
+            /* 0.5 second transition effect to slide in the sidenav */
+        }
+
         /* The navigation menu links */
         .sidenav a {
             padding: 8px 8px 8px 32px;
@@ -47,12 +60,12 @@
             display: block;
             transition: 0.3s;
         }
-        
+
         /* When you mouse over the navigation links, change their color */
         .sidenav a:hover {
             color: #f1f1f1;
         }
-        
+
         /* Position and style the close button (top right corner) */
         .sidenav .closebtn {
             position: absolute;
@@ -61,17 +74,22 @@
             font-size: 36px;
             margin-left: 50px;
         }
-        
+
         /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
         #main {
             transition: margin-left .5s;
             padding: 20px;
         }
-        
+
         /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
         @media screen and (max-height: 450px) {
-            .sidenav {padding-top: 15px;}
-            .sidenav a {font-size: 18px;}
+            .sidenav {
+                padding-top: 15px;
+            }
+
+            .sidenav a {
+                font-size: 18px;
+            }
         }
 
         .footer {
@@ -81,7 +99,7 @@
         }
 
         /* Generally accepted screen size for mobile phones portrait or landscape */
-        @media screen and (max-device-width: 640px){
+        @media screen and (max-device-width: 640px) {
             .blackboard {
                 width: 300px;
                 height: 100px;
@@ -102,8 +120,12 @@
             }
 
             .navImage {
-                width: 30px;
-                height: 30px;
+                width: 25px;
+                height: 25px;
+            }
+
+            #menu {
+                margin-bottom: 15px;
             }
 
             .conclusion {
@@ -118,11 +140,14 @@
         /* Generally accepted screen size for tablets portrait or landscape */
         @media screen and (min-device-width: 768px) and (max-device-width: 1024px) {
             .navImage {
-                width: 30px;
-                height: 30px;
+                width: 25px;
+                height: 25px;
+            }
+
+            #menu {
+                margin-bottom: 15px;
             }
         }
-
     </style>
 </head>
 
@@ -130,11 +155,14 @@
 
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="home.html">Home<img style="margin-left: 10px;" height="30px" width="30px" src="home.png"></a>
         <a href="global.html">Global<img style="margin-left: 10px;" height="30px" width="30px" src="globe.png"></a>
-        <a href="countries.html">Countries<img style="margin-left: 10px;" height="35px" width="30px" src="country.png"></a>
+        <a href="countries.html">Countries<img style="margin-left: 10px;" height="35px" width="30px"
+                src="country.png"></a>
         <a href="map.html">Map<img style="margin-left: 10px;" height="35px" width="30px" src="pin.png"></a>
         <a href="sir.html">SIR<img style="margin-left: 10px;" height="30px" width="30px" src="graph.png"></a>
-        <a href="resources.html">Resources<img style="margin-left: 10px;" height="30px" width="30px" src="folder.png"></a>
+        <a href="resources.html">Resources<img style="margin-left: 10px;" height="30px" width="30px"
+                src="folder.png"></a>
     </div>
 
     <button id="menu" onclick="openNav()"><img class="navImage" height="50px" width="50px" src="sidenav.png"></button>
@@ -151,26 +179,37 @@
         <h3>An explanation of compartmental models</h3>
         <br><br>
         <p>
-            Compartmental modelling is a technique used by mathematicians and epidemeologists to work out the effect that a virus could potentially have on a populous. 
-            There are many compartmental models, like SIS, SIRD, MSIR, SEIR, SIZR etc. Out of all these mathematical models, the SIR model is the progenitor.
-            What that means is that SIR is the most basic understanding of how mathematical epidemelogy works, and the other models are derivations that follow suit.
+            Compartmental modelling is a technique used by mathematicians and epidemeologists to work out the effect
+            that a virus could potentially have on a populous.
+            There are many compartmental models, like SIS, SIRD, MSIR, SEIR, SIZR etc. Out of all these mathematical
+            models, the SIR model is the progenitor.
+            What that means is that SIR is the most basic understanding of how mathematical epidemelogy works, and the
+            other models are derivations that follow suit.
 
             <br><br>
 
-            But what exactly is a compartmental model? What does SIR actually mean? How is all of this relevant to COVID-19?
-            The SIR in SIR model stands for Susceptible, Infected and Removed. Think of each letter as its own seperate bucket. Inside these buckets are people, and whatever 
+            But what exactly is a compartmental model? What does SIR actually mean? How is all of this relevant to
+            COVID-19?
+            The SIR in SIR model stands for Susceptible, Infected and Removed. Think of each letter as its own seperate
+            bucket. Inside these buckets are people, and whatever
             bucket they are in determines how the virus is affecting them.
-            The people in the Susceptible bucket haven't been infected by the virus yet, but are vulnerable to catching it. With COVID-19, the case could be made that every person
-            on the planet that hasn't already been infected is susceptible. 
-            The people in the Infected bucket are people who have been infected, and are actively ill as a result of the virus. This means they haven't recovered or died yet, and can infect
+            The people in the Susceptible bucket haven't been infected by the virus yet, but are vulnerable to catching
+            it. With COVID-19, the case could be made that every person
+            on the planet that hasn't already been infected is susceptible.
+            The people in the Infected bucket are people who have been infected, and are actively ill as a result of the
+            virus. This means they haven't recovered or died yet, and can infect
             other people who are in the S bucket.
-            Finally, the people in the Removed bucket are those who have either recovered from the virus and aren't actively infectious, or those who have succumbed to it and died. There are other models
-            which account for the dead as a seperate group from the recovered, but SIR doesn't differentiate between the two.
+            Finally, the people in the Removed bucket are those who have either recovered from the virus and aren't
+            actively infectious, or those who have succumbed to it and died. There are other models
+            which account for the dead as a seperate group from the recovered, but SIR doesn't differentiate between the
+            two.
 
             <br><br>
 
-            So, we know what the SIR model is, but we still don't know what it's useful for, or why it even exists. The answer lies in Calculus. Our aim with the SIR model is 
-            to show the change over time of all three compartments. Representing the compartments as functions of time S(t), I(t) and R(t), we can begin to simplify the problem by declaring a few assumptions.  
+            So, we know what the SIR model is, but we still don't know what it's useful for, or why it even exists. The
+            answer lies in Calculus. Our aim with the SIR model is
+            to show the change over time of all three compartments. Representing the compartments as functions of time
+            S(t), I(t) and R(t), we can begin to simplify the problem by declaring a few assumptions.
 
         </p>
         <br><br>
@@ -179,20 +218,24 @@
         <br>
         <p>
 
-            <ol>
-                <li>Reinfection is not going to happen to anyone in the population. The model will strictly follow a linear progression from S to I to R in that order.
-                    (While there is genomic evidence for COVID-19 reinfecting people (<a href="https://www.thelancet.com/journals/laninf/article/PIIS1473-3099(20)30764-7/fulltext">Lancet Article</a>), we still have to make this assumption in order for the model to maintain integrity.) 
-                </li>
-                <br>
-                <li>
-                    Since the dynamics of a pandemic will mostly be faster than the dynamics of birth and death, our model won't account for birth and death rates happening in the world.
-                </li>
-                <br>
-                <li>
-                    At any point in time, S(t) + I(t) + R(t) = constant = N(The number in the population).
-                    Likewise, the rates of change of these functions added together will equal 0.
-                </li>
-            </ol>
+        <ol>
+            <li>Reinfection is not going to happen to anyone in the population. The model will strictly follow a linear
+                progression from S to I to R in that order.
+                (While there is genomic evidence for COVID-19 reinfecting people (<a
+                    href="https://www.thelancet.com/journals/laninf/article/PIIS1473-3099(20)30764-7/fulltext">Lancet
+                    Article</a>), we still have to make this assumption in order for the model to maintain integrity.)
+            </li>
+            <br>
+            <li>
+                Since the dynamics of a pandemic will mostly be faster than the dynamics of birth and death, our model
+                won't account for birth and death rates happening in the world.
+            </li>
+            <br>
+            <li>
+                At any point in time, S(t) + I(t) + R(t) = constant = N(The number in the population).
+                Likewise, the rates of change of these functions added together will equal 0.
+            </li>
+        </ol>
 
         </p>
         <br><br>
@@ -200,95 +243,131 @@
         <h3>Differential Equations</h3>
         <br>
         <p>
-            OK, so we've made our assumptions, and we've got our compartments, so how do we represent the changes to each compartment through something like a graph? 
-            Using differentiation, we can find the rates of change for each function of time. To do this, we're going to have to define two variables. One will be called β (beta) and the other
-            will be called ν (nu). β will be the infection rate (how quickly people transfer from S to I) and ν will be the removal rate (how quickly people transfer from I to R).
+            OK, so we've made our assumptions, and we've got our compartments, so how do we represent the changes to
+            each compartment through something like a graph?
+            Using differentiation, we can find the rates of change for each function of time. To do this, we're going to
+            have to define two variables. One will be called β (beta) and the other
+            will be called ν (nu). β will be the infection rate (how quickly people transfer from S to I) and ν will be
+            the removal rate (how quickly people transfer from I to R).
 
-            Confused yet? Now what we need to do is see what transition rates apply to which derivatives, and what other variables to consider. Take a look at the diagram below:
-            
-            <br><br><br><br>
-            <img class="blackboard" src="./Blackboard.png" style="margin: auto; display: block;" alt="" width="780px" height="250px">
-            <figcaption style="text-align: center;">Transition Rates</figcaption>
-            <br><br><br><br>
-
-            Let's break it down. It states the two transitions: S - I and I - R, and how those are calculated. The former is calculated by taking β and the current values of S and I into account.
-            Multiplying those by one another gives us one transition. The latter is calculated by considering ν and the current value of I. Notice how the current value of R isn't considered, as R won't transition 
-            to another compartment. 
-            
-            Second, it's telling us which buckets increase, decrease, or do both, so we can get an idea of the kinds of functions we're working with.
-            Firstly, S will always be decreasing (strictly decreasing function). Because of assumption #1, reinfection won't happen, so people don't go from R to S. Next, I is increasing at the same time as S decreasing,
-            as people are switching compartments, but it is also decreasing, because people are leaving it to go to R (more parabolic in nature). Finally, R is always increasing (strictly increasing function), due to the influx from I, and the fact that people don't leave 
-            R. 
-
-            Considering all this, and putting it all together, we get the following three differential equations: 
+            Confused yet? Now what we need to do is see what transition rates apply to which derivatives, and what other
+            variables to consider. Take a look at the diagram below:
 
             <br><br><br><br>
-            <img src="./Equations.png" alt="" width="220px" height="160px" style="margin: auto; display: block;">
-            <figcaption style="text-align: center;">Differential Equations</figcaption>
-            <br><br><br><br>      
+            <img class="blackboard" src="./Blackboard.png" style="margin: auto; display: block;" alt="" width="780px"
+                height="250px">
+        <figcaption style="text-align: center;">Transition Rates</figcaption>
+        <br><br><br><br>
+
+        Let's break it down. It states the two transitions: S - I and I - R, and how those are calculated. The former is
+        calculated by taking β and the current values of S and I into account.
+        Multiplying those by one another gives us one transition. The latter is calculated by considering ν and the
+        current value of I. Notice how the current value of R isn't considered, as R won't transition
+        to another compartment.
+
+        Second, it's telling us which buckets increase, decrease, or do both, so we can get an idea of the kinds of
+        functions we're working with.
+        Firstly, S will always be decreasing (strictly decreasing function). Because of assumption #1, reinfection won't
+        happen, so people don't go from R to S. Next, I is increasing at the same time as S decreasing,
+        as people are switching compartments, but it is also decreasing, because people are leaving it to go to R (more
+        parabolic in nature). Finally, R is always increasing (strictly increasing function), due to the influx from I,
+        and the fact that people don't leave
+        R.
+
+        Considering all this, and putting it all together, we get the following three differential equations:
+
+        <br><br><br><br>
+        <img src="./Equations.png" alt="" width="220px" height="160px" style="margin: auto; display: block;">
+        <figcaption style="text-align: center;">Differential Equations</figcaption>
+        <br><br><br><br>
 
         </p>
 
         <p>
 
-            <h3>Now what?</h3>
+        <h3>Now what?</h3>
 
-                Well, that's pretty much it! You now understand some of the main concepts behind how the SIR model works. After we've got our differential equations, we can declare values for β, ν, the initial conditions of S, I and R, as well as the number of people
-                in our population. Once we've put all this together, we can set a time range, and solve the equations for each value of time. 
-    
-                <br><br>
-    
-                The language I decided to base my SIR modeller off was Python. I approached the solution Object-oriented style, which basically meant that the functions I was writing were contained inside a 
-                class structure, and I could pass in parameters and call them. Because of this, it was easy to mess around with the different variables to see what the outcome would be. Dependencies for the program mainly consisted
-                of numpy, to execute functions like linspace(), and the pyplot module from matplotlib, which helped to draw the graphs based on the data from the three equations.
-                
-                
-                <br><br>
+        Well, that's pretty much it! You now understand some of the main concepts behind how the SIR model works. After
+        we've got our differential equations, we can declare values for β, ν, the initial conditions of S, I and R, as
+        well as the number of people
+        in our population. Once we've put all this together, we can set a time range, and solve the equations for each
+        value of time.
 
-                <div style="margin-bottom: 350px; margin-top: 30px; text-align: center;">
-                <div style="float: right; display: block; margin-bottom: 50px;">
-                    <img class="figure_1" src="./Figure_1.png" height="400px" width="475px">
-                    <figcaption style="text-align: center;">Fig.1 - Effect of 0.05% β on initial population of 1500 (10% ν)</figcaption>
-                </div>
-                As Figure 1 shows,
-                when β was equal to 0.05%, affecting a population of 1500, the peak for I(t) came in the first third of the time scale, and had a maximum of ~60% of the population being infected at one time.
-                Another thing to note was that S(t) levelled off at zero very quickly. If this were a real life scenario, there'd be no point in a vaccine at this point.
-                Obviously, this isn't a very ideal scenario, and β is really what we need to decrease to get a more favourable result.
-                </div>
-                
-                <br><br>
-                <br>
-    
-                <div style="text-align: center;">
-                <div style="float: right; display: block; margin-bottom: 50px;">
-                    <img class="figure_2" src="./Figure_2.png" height="400px" width="475px" style="float: right;">
-                    <figcaption style="text-align: center;">Fig.2 - Effect of 0.02% β on initial population of 1500 (10% ν)</figcaption>
-                </div>
-                Figure 2 shows the exact same graph, but if β was decreased to 0.02%, and all other conditions remained the same. Immediately, you can see that S'(t) is not as drastically high as it appeared
-                in the last run. I(t) only reaches its peak in the last third of the time scale, and only ~33% of the population are afflicted by the virus at the peak. 
-                </div>
+        <br><br>
 
-                <br><br>
-    
-                I like to think this shows the effectiveness and reason for why we have lockdowns. The only variable out of all of the ones we have defined that we have some vague sense of control over is β.
-                The only way to change ν is if we have a vaccine or some other kind of treatment, but we can't change the people we have in our model, so we have to find a way to get β as low as possible in order
-                for our graph to look more promising. How do we decrease β? The most effective way would be limiting exposure with other people by socially distancing. Self-isolation and lockdown are what decrease β, so that less people
-                are sick at once.
-    
-                <br><br>
-    
-                <div class="conclusion">
-                So, in summary, decreasing β is how we change the graph. Below, I've embedded the code for the SIR modeller I used to produce these graphs initially, so go ahead and interact with it. Look out for comment lines (signified by #)
-                which tell you what values you want to change, and what things you'd probably want to leave alone so that the program works. Line 62 and line 67 are the ones that'll determine what your graph looks like. Click on run to test what kind of graph the code produces, and the window below it will show your results!
-                A lot of times you'll get a weird looking graph that shows no values, but keep experimenting with the values until you get something that works! Have fun! :)
-                </div>
+        The language I decided to base my SIR modeller off was Python. I approached the solution Object-oriented style,
+        which basically meant that the functions I was writing were contained inside a
+        class structure, and I could pass in parameters and call them. Because of this, it was easy to mess around with
+        the different variables to see what the outcome would be. Dependencies for the program mainly consisted
+        of numpy, to execute functions like linspace(), and the pyplot module from matplotlib, which helped to draw the
+        graphs based on the data from the three equations.
+
+
+        <br><br>
+
+        <div style="margin-bottom: 350px; margin-top: 30px; text-align: center;">
+            <div style="float: right; display: block; margin-bottom: 50px;">
+                <img class="figure_1" src="./Figure_1.png" height="400px" width="475px">
+                <figcaption style="text-align: center;">Fig.1 - Effect of 0.05% β on initial population of 1500 (10% ν)
+                </figcaption>
+            </div>
+            As Figure 1 shows,
+            when β was equal to 0.05%, affecting a population of 1500, the peak for I(t) came in the first third of the
+            time scale, and had a maximum of ~60% of the population being infected at one time.
+            Another thing to note was that S(t) levelled off at zero very quickly. If this were a real life scenario,
+            there'd be no point in a vaccine at this point.
+            Obviously, this isn't a very ideal scenario, and β is really what we need to decrease to get a more
+            favourable result.
+        </div>
+
+        <br><br>
+        <br>
+
+        <div style="text-align: center;">
+            <div style="float: right; display: block; margin-bottom: 50px;">
+                <img class="figure_2" src="./Figure_2.png" height="400px" width="475px" style="float: right;">
+                <figcaption style="text-align: center;">Fig.2 - Effect of 0.02% β on initial population of 1500 (10% ν)
+                </figcaption>
+            </div>
+            Figure 2 shows the exact same graph, but if β was decreased to 0.02%, and all other conditions remained the
+            same. Immediately, you can see that S'(t) is not as drastically high as it appeared
+            in the last run. I(t) only reaches its peak in the last third of the time scale, and only ~33% of the
+            population are afflicted by the virus at the peak.
+        </div>
+
+        <br><br>
+
+        I like to think this shows the effectiveness and reason for why we have lockdowns. The only variable out of all
+        of the ones we have defined that we have some vague sense of control over is β.
+        The only way to change ν is if we have a vaccine or some other kind of treatment, but we can't change the people
+        we have in our model, so we have to find a way to get β as low as possible in order
+        for our graph to look more promising. How do we decrease β? The most effective way would be limiting exposure
+        with other people by socially distancing. Self-isolation and lockdown are what decrease β, so that less people
+        are sick at once.
+
+        <br><br>
+
+        <div class="conclusion">
+            So, in summary, decreasing β is how we change the graph. Below, I've embedded the code for the SIR modeller
+            I used to produce these graphs initially, so go ahead and interact with it. If you wish to do so, you'll need a repl.it account
+            in order to edit the code and make it your own. <a href="https://repl.it/"><p>Sign up here!</p></a> Look out for comment lines
+            (signified by #)
+            which tell you what values you want to change, and what things you'd probably want to leave alone so that
+            the program works. Line 62 and line 67 are the ones that'll determine what your graph looks like. Click on
+            run to test what kind of graph the code produces, and the window below it will show your results!
+            A lot of times you'll get a weird looking graph that shows no values, but keep experimenting with the values
+            until you get something that works! Have fun! :)
+        </div>
         </p>
 
 
-    <!-- Creates a window which has a mini version of my script and a results window so that others can mess about with it and see what happens. -->
-    <iframe class="embeddedPython" style="margin-top:50px; margin-left: 5%; margin-right: 5%;" height="1200px" width="90%" src="https://repl.it/@HazMan04/LoneSoulfulSignature?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+        <!-- Creates a window which has a mini version of my script and a results window so that others can mess about with it and see what happens. -->
+        <iframe class="embeddedPython" style="margin-top:50px; margin-left: 5%; margin-right: 5%;" height="1200px"
+            width="90%" src="https://repl.it/@HazMan04/LoneSoulfulSignature?lite=true" scrolling="no" frameborder="no"
+            allowtransparency="true" allowfullscreen="true"
+            sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
-    
+
 </body>
 
 <br><br>
@@ -296,6 +375,7 @@
 
 <footer class="footer">
     <p>Built by Hashim I.</p>
+    <a href="./home.html">Back to home page</a>
 </footer>
 
 <script>
@@ -305,12 +385,12 @@
         document.body.style.backgroundColor = "rgba(0,0,0,0.6)";
 
     }
-    
+
     // Set the width of the side navigation to 0. Return background color to normal
     function closeNav() {
         document.getElementById("mySidenav").style.width = "0";
         document.body.style.backgroundColor = "#222";
-        document.getElementById("menu").src = "sidenav1.jpg"; 
+        document.getElementById("menu").src = "sidenav1.jpg";
     }
 
     const dt = new Date();
