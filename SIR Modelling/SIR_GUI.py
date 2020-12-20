@@ -11,8 +11,11 @@ R'(t) = nu * I
 '''
 Dependencies:
 Tkinter for implementing UI elements
-numpy for 
+Numpy for creating arrays along certain scales.
+ODESolver which does the calculus and creates differential equations.
+Matplotlib to plot the graph based on the solutions for each time point.
 '''
+
 from tkinter import *
 import numpy as np
 from ODESolver import ForwardEuler
@@ -59,8 +62,10 @@ class SIR:
             self.nu(t) * I
         ])
 
+
 #Creates a tkinter window
 master = Tk()
+master.geometry('500x500')
 
 #Setting the title of the window.
 master.title('COVID-19 SIR modeller')
@@ -77,7 +82,6 @@ canvas.create_window(200, 50, window=title)
 #Creating a beta label and entry box, pushing them to the canvas.
 infectionRate = Label(master, text='β (Infection Rate %): ')
 canvas.create_window(100, 150, window=infectionRate)
-
 infectionEntry = Entry(master, bd=3, width=10)
 canvas.create_window(300, 150, window=infectionEntry)
 
@@ -85,18 +89,24 @@ canvas.create_window(300, 150, window=infectionEntry)
 initialS_label = Label(master, text='Initial susceptible population: ') 
 initialI_label = Label(master, text='Initial infected population: ') 
 initialS_entry = Entry(master, bd=3, width=10) 
-initialI_entry = Entry(master, bd=3, width=10) 
+initialI_entry = Entry(master, bd=3, width=10)
 
 canvas.create_window(100, 200, window=initialS_label)
 canvas.create_window(100, 250, window=initialI_label)
 canvas.create_window(300, 200, window=initialS_entry)
 canvas.create_window(300, 250, window=initialI_entry)
 
+scale_label = Label(master, text='Time scale (Days): ')
+scale_entry = Entry(master, bd=3, width = 10)
+canvas.create_window(100, 300, window=scale_label)
+canvas.create_window(300, 300, window=scale_entry)
+
 #Initialises the graph once the data has been entered by the user
 def initialiseGraph():
 
     #The text fields are of 'str' type, so they need to be converted.#
     beta = float(infectionEntry.get())
+    scale = int(scale_entry.get())
     s = int(initialS_entry.get())
     i = int(initialI_entry.get())
 
@@ -105,7 +115,7 @@ def initialiseGraph():
     solver = ForwardEuler(sir)
     solver.setInitialConditions(sir.initial_conditions)
 
-    time_steps = np.linspace(0, 90, 1000)
+    time_steps = np.linspace(0, scale, 1000)
     u, t = solver.solve(time_steps)
 
     #Plot the points on the graph
@@ -114,7 +124,7 @@ def initialiseGraph():
     plt.plot(t, u[:, 2], label="Removed")
 
     plt.title('Population vs Time')
-    plt.xlabel('Time (Arbitrary units)')
+    plt.xlabel('Time (Days)')
     plt.ylabel('Number of people')
 
     plt.legend()
@@ -127,11 +137,11 @@ def initialiseGraph():
 
 #Button to generate the graph, which will also call the function above.
 generate = Button(master, text='Generate Graph', command=initialiseGraph)
-canvas.create_window(200, 350, window=generate)
+canvas.create_window(200, 375, window=generate)
 
 #Button which will quit the program when pressed.
 quitButton = Button(master, text='Exit Program', command=master.quit)
-canvas.create_window(200, 400, window=quitButton)
+canvas.create_window(200, 425, window=quitButton)
 
 #This pretty much tells our tkinter window to stop listening and quit execution.
 master.mainloop()
