@@ -5,14 +5,16 @@
     <meta charset="UTF-8">
     <script data-ad-client="ca-pub-2163967579061791" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="./bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
     <link rel="shortcut icon" type="image/x-icon" href="./favicon.png" />
     <title>COVID-19 Statistics</title>
 
     <style>
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
             width: 100%;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            margin: 0;
+            padding: 0;
         }
 
         .title {
@@ -21,9 +23,11 @@
             text-align: center;
         }
 
-        a {
-            font-size: 19px;
-            font-weight: 200;
+        .pageLinks {
+            text-align: center;
+            margin-top: 150px;
+            font-weight: 800;
+            font-size: 18px;
         }
 
         .sidenav {
@@ -53,6 +57,7 @@
             padding: 8px 8px 8px 32px;
             text-decoration: none;
             font-size: 25px;
+            font-weight: 200;
             color: #818181;
             display: block;
             transition: 0.3s;
@@ -89,13 +94,11 @@
             }
         }
 
-        .footer {
-            text-align: center;
-            font-weight: lighter;
-            font-size: small;
+        p {
+            font-size: 19px;
+            font-weight: 200;
         }
 
-        /* Generally accepted screen size for mobile phones portrait or landscape */
         @media screen and (max-device-width: 640px) {
             .navImage {
                 width: 25px;
@@ -107,7 +110,6 @@
             }
         }
 
-        /* Generally accepted screen size for tablets portrait or landscape */
         @media screen and (min-device-width: 768px) and (max-device-width: 1024px) {
             .navImage {
                 width: 25px;
@@ -121,8 +123,8 @@
     </style>
 </head>
 
-<body>
 
+<body>
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a href="home.html">Home<img style="margin-left: 10px;" height="30px" width="30px" src="home.png"></a>
@@ -138,65 +140,40 @@
     <button id="menu" onclick="openNav()"><img class="navImage" height="50px" width="50px" src="sidenav.png"></button>
 
     <div class="title">
-        <h1>COVID-19 Resources Page</h1>
+        <h1>COVID-19 App Home Page</h1>
         <br>
         <span id="today" style="font-size: 15px; color: turquoise;"></span>
     </div>
-    <br><br>
-    <br><br>
-    <br><br>
 
-    <h4>Resources</h4>
-    <a href="https://bit.ly/3pnKvmx">GDrive Folder</a>
-    <br>
-    <a href="https://bit.ly/35udSLL">Youtube Playlist</a>
-    <br><br>
+    <p style="margin-top: 50px; width: 50vw; margin-left: auto; margin-right: auto;">
+        Welcome to the COVID-19 Statistics App! Click on the links below or on the hamburger menu (3 lines) in the top
+        left to access one of the pages. The Global, Countries and Maps pages
+        all show COVID-19 statistical data, from total cases, deaths and recoveries alongside other information. Pages
+        make use of Chart.js as well as Mapbox to create UI elements.
+        The SIR page explains predictive models for viruses like corona. Get started by clicking on one of the links
+        below to go to one of the pages. Hope you enjoy!
 
-    <h4>Acknowledgements</h4>
+        <br><br>
+        -Hashim
+    </p>
 
-    <a href="https://devcenter.heroku.com/">Heroku Dev Center (Documentation to get started)</a>
-    <br>
-    <a href="https://www.chartjs.org/docs/latest/">Chart.js Documentation</a>
-    <br>
-    <a href="https://github.com/chartjs/Chart.js">Chart.js Github (Contribute your ideas!)</a>
-    <br>
-    <a href="https://docs.mapbox.com">Mapbox Documentation</a>
-    <br>
-    <a href="https://github.com/mapbox/mapbox-gl-js">Mapbox Github (Contribute your ideas!)</a>
-    <br>
-    <a href="https://api.jquery.com/">JQuery Documentation</a>
-    <br>
-    <a href="https://github.com/jquery/jquery">JQuery Github (Contribute your ideas!)</a>
-    <br>
-    <a href="https://en.wikipedia.org/wiki/Compartmental_models_in_epidemiology#The_SIR_model">SIR model source</a>
-    <br><br>
-
-    <h4>APIs</h4>
-    <a href="https://api.covid19api.com/summary">Global Page API</a>
-    <br>
-    <a href="https://covid.ourworldindata.org/data/owid-covid-data.json">Countries Page API</a>
-    <br>
-    <a href="https://www.trackcorona.live/api/countries">Maps Page API</a>
-    <br>
-    <a href="https://github.com/CSSEGISandData/COVID-19">All Data Sourced by Johns Hopkins</a>
-    <br><br>
-    <br><br>
-
-    <p style="text-align: center; font-size: 18px; font-weight: 200;">A huge thank you to everyone who helped during the
-        testing phase. You were all fantastic! :) </p>
+    <div class="pageLinks">
+        <a href="./global.html">Global Statistics</a>
+        <br><br>
+        <a href="./countries.html">Country Statistics</a>
+        <br><br>
+        <a href="./map.html">Interactive Map</a>
+        <br><br>
+        <a href="./sir.html">SIR Modelling</a>
+        <br><br>
+        <a href="./resources.html">Resources</a>
+    </div>
 
 
 </body>
 
-
-<br><br>
-
-<footer class="footer">
-    <p>Built by Hashim I.</p>
-    <a href="./home.html">Back to home page</a>
-</footer>
-
 <script>
+
     // Set the width of the side navigation to 250px. 60% Opacity
     function openNav() {
         document.getElementById("mySidenav").style.width = "250px";
