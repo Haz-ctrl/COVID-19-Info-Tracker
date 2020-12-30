@@ -80,13 +80,14 @@ p, a {
   height: 50vh;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 10%;
 }
 
 .statsContainer {
   display: block;
   float: left;
   width: 40vw;
-  margin-top: 250px;
+  margin-top: 10%;
   margin-bottom: 60px;
   margin-left: 20px;
 }
