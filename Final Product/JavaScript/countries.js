@@ -15,102 +15,116 @@ function closeNav() {
 }
 
 //Breaking my own rules here, and using JQuery to get the current value of weather.
-function fetchData() {
+async function changeCountry() {
+
+    //Break the problem up into smaller bits to reduce lag and waiting times.
+
+    //This will fetch the timeseries statistics, which will aid in constructing the chart.
+    const baseurl = 'https://pomber.github.io/covid19/timeseries.json';
+    const baseresponse = await fetch(baseurl);
+    const basedata = await baseresponse.json();
+
+    //This will fetch the new cases and new deaths statistics, which will aid in
+    const extendedurl = 'https://api.covid19api.com/summary';
+    const extendedresponse = await fetch(extendedurl);
+    const extendeddata = await extendedresponse.json();
+
+    //This will fetch the stats from the local file in the directory.
+    //NOTE: THIS WILL ONLY WORK WHEN RUNNING THE SERVER, NOT THE FILE.
+    const localresponse = await fetch('countries.json');
+    const localdata = await localresponse.json();
     
+    console.log(localdata);
+    console.log(basedata);
+    console.log(extendeddata);
+
     $(document).ready(function(){
         $("select.countries").change(function(){
-            const selectedCountry = $(this).children("option:selected").val();
-            const data = '';
-            const url = 'https://covid.ourworldindata.org/data/owid-covid-data.json'
+            const countryCode = $(this).children("option:selected").val();
+            const countryName = $(this).children("option:selected").text();
+            const element = $(this).children("option:selected").data('element')
 
-            $.ajax({
-                type: 'GET',
-                url: 'https://covid.ourworldindata.org/data/owid-covid-data.json',
-                cache: true,
+            //Applying variables to the inner HTML of each ID.
+            //(Syntax for JQuery)
+
+            //This is derived from the base fetch
+            $('#TotalConfirmed').html((basedata[countryName][basedata[countryName].length - 1].confirmed).toLocaleString('en'));
+            $('#TotalDeaths').html((basedata[countryName][basedata[countryName].length - 1].deaths).toLocaleString('en'));
+
+            //This is derived from the extended fetch
+            $('#NewCases').html((extendeddata.Countries[element].NewConfirmed).toLocaleString('en'));
+            $('#NewDeaths').html((extendeddata.Countries[element].NewDeaths).toLocaleString('en'));
+
+            //This is derived from local file fetch 
+            $('#PopulationDensity').html((localdata[countryCode].population_density).toLocaleString('en', {maximumFractionDigits: 1, minimumFractionDigits: 1}));
+            $('#70older').html((localdata[countryCode].aged_70_older).toLocaleString('en', {maximumFractionDigits: 1, minimumFractionDigits: 1}));
+            $('#CardioDeath').html((localdata[countryCode].cardiovasc_death_rate).toLocaleString('en', {maximumFractionDigits: 0, minimumFractionDigits: 0}));
+            $('#DiabetesPrev').html((localdata[countryCode].diabetes_prevalence).toLocaleString('en', {maximumFractionDigits: 2, minimumFractionDigits: 2}));
+            $('#HospBeds').html((localdata[countryCode].hospital_beds_per_thousand).toLocaleString('en', {maximumFractionDigits: 1, minimumFractionDigits: 1}));
+            $('#mortRate').html(((Number(basedata[countryName][basedata[countryName].length - 1].deaths) / Number(basedata[countryName][basedata[countryName].length - 1].confirmed)) * 100).toLocaleString('en', {maximumFractionDigits: 2, minimumFractionDigits: 2}));
+
+            const xarray = [];
+            const yarray = [];
+
+            for (i=0; i < basedata[countryName].length; i++) {
+                const date = basedata[countryName][i].date;
+                xarray.push(date);
+
+                const cases = basedata[countryName][i].confirmed;
+                yarray.push(cases);
+            }
+
+            const myChart = new Chart(countryChart, {
+                type: 'line',
                 data: {
-                    format: 'json'
+                    labels: xarray,
+                    datasets: [{
+                        label: 'Total Cases over time',
+                        data: yarray,
+                        fill: false,
+                        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                        borderColor: 'rgba(255, 99, 132, 1)',
+                        borderWidth: 4
+                        
+                    }]
                 },
-
-                success: function(data) {
-                    const total_cases = (data[selectedCountry].data[data[selectedCountry].data.length - 1].total_cases)
-
-                    //Applying variables to the inner HTML of each ID.
-                    //(Syntax for JQuery)
-                    $('#TotalConfirmed').html((total_cases).toLocaleString('en'));
-                    $('#TotalDeaths').html((data[selectedCountry].data[data[selectedCountry].data.length - 1].total_deaths).toLocaleString('en'));
-                    $('#NewCases').html((data[selectedCountry].data[data[selectedCountry].data.length - 1].new_cases).toLocaleString('en'));
-                    $('#NewDeaths').html((data[selectedCountry].data[data[selectedCountry].data.length - 1].new_deaths).toLocaleString('en'));
-                    $('#PopulationDensity').html((data[selectedCountry].population_density).toLocaleString('en', {maximumFractionDigits: 1, minimumFractionDigits: 1}));
-                    $('#70older').html((data[selectedCountry].aged_70_older).toLocaleString('en', {maximumFractionDigits: 2, minimumFractionDigits: 1}));
-                    $('#CardioDeath').html((data[selectedCountry].cardiovasc_death_rate).toLocaleString('en', {maximumFractionDigits: 1, minimumFractionDigits: 1}));
-                    $('#DiabetesPrev').html((data[selectedCountry].diabetes_prevalence).toLocaleString('en', {maximumFractionDigits: 2, minimumFractionDigits: 1}));
-                    $('#HospBeds').html((data[selectedCountry].hospital_beds_per_thousand).toLocaleString('en', {maximumFractionDigits: 1, minimumFractionDigits: 1}));
-                    $('#mortRate').html(((Number(data[selectedCountry].data[data[selectedCountry].data.length - 1].total_deaths)/Number(data[selectedCountry].data[data[selectedCountry].data.length - 1].total_cases)) * 100).toLocaleString('en', {maximumFractionDigits: 2, minimumFractionDigits: 2}));
-    
-                    const xarray = [];
-                    const yarray = [];
-    
-                    for (i=0; i < data[selectedCountry].data.length; i++) {
-                        const date = data[selectedCountry].data[i].date
-                        xarray.push(date);
-    
-                        const cases = data[selectedCountry].data[i].total_cases
-                        yarray.push(cases);
-                    }
-    
-                    const myChart = new Chart(countryChart, {
-                        type: 'line',
-                        data: {
-                            labels: xarray,
-                            datasets: [{
-                                label: 'Total Cases over time',
-                                data: yarray,
-                                fill: false,
-                                backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                                borderColor: 'rgba(255, 99, 132, 1)',
-                                borderWidth: 4
-                                
-                            }]
-                        },
-                        options: {
-                            elements: {
-                                point: {
-                                    radius: 0
-                                }
-                            },
-                            scales: {
-                                xAxes: [{
-                                    scaleLabel: {
-                                        display: true,
-                                        labelString: 'Date',
-                                        fontSize: 16,
-                                        fontColor: '#ffffff'
-                                    },
-                                    ticks: {
-                                        beginAtZero: true
-                                    }
-                                }],
-                                yAxes: [{
-                                    scaleLabel: {
-                                        display: true,
-                                        labelString: 'Number of cases',
-                                        fontSize: 16,
-                                        fontColor: '#ffffff'
-                                    },
-                                    ticks: {
-                                        suggestedMin: 0,
-                                        suggestedMax: total_cases,
-                                        beginAtZero: true
-                                    }
-                                }]
-                            }
+                options: {
+                    elements: {
+                        point: {
+                            radius: 0
                         }
-                    });
+                    },
+                    scales: {
+                        xAxes: [{
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Date',
+                                fontSize: 16,
+                                fontColor: '#ffffff'
+                            },
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }],
+                        yAxes: [{
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Number of cases',
+                                fontSize: 16,
+                                fontColor: '#ffffff'
+                            },
+                            ticks: {
+                                suggestedMin: 0,
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }
+            });
     
-                }  
+                  
 
-                })
-            }) 
+        })
     
     })
 
