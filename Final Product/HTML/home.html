@@ -6,14 +6,17 @@
     <script data-ad-client="ca-pub-2163967579061791" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./anime.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha512-z4OUqw38qNLpn1libAN9BsoDx6nbNFio5lA6CuTp9NlK83b89hgyCVq+N5FdBJptINztxn1Z3SaKSKUS5UP60Q==" crossorigin="anonymous"></script>
     <link rel="shortcut icon" type="image/x-icon" href="./favicon.png" />
     <title>COVID-19 Statistics</title>
 
     <style>
         body {
             width: 100%;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            margin: 0;
+            font-family: 'Roboto', sans-serif;
             padding: 0;
         }
 
@@ -129,18 +132,16 @@
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a href="home.html">Home<img style="margin-left: 10px;" height="30px" width="30px" src="home.png"></a>
         <a href="global.html">Global<img style="margin-left: 10px;" height="30px" width="30px" src="globe.png"></a>
-        <a href="countries.html">Countries<img style="margin-left: 10px;" height="35px" width="30px"
-                src="country.png"></a>
+        <a href="countries.html">Countries<img style="margin-left: 10px;" height="35px" width="30px" src="country.png"></a>
         <a href="map.html">Map<img style="margin-left: 10px;" height="35px" width="30px" src="pin.png"></a>
         <a href="sir.html">SIR<img style="margin-left: 10px;" height="30px" width="30px" src="graph.png"></a>
-        <a href="resources.html">Resources<img style="margin-left: 10px;" height="30px" width="30px"
-                src="folder.png"></a>
+        <a href="resources.html">Resources<img style="margin-left: 10px;" height="30px" width="30px" src="folder.png"></a>
     </div>
 
     <button id="menu" onclick="openNav()"><img class="navImage" height="50px" width="50px" src="sidenav.png"></button>
 
     <div class="title">
-        <h1>COVID-19 App Home Page</h1>
+        <h1>COVID-19 Home Page</h1>
         <br>
         <span id="today" style="font-size: 15px; color: turquoise;"></span>
     </div>
@@ -174,6 +175,9 @@
 
 <script>
 
+    const title = document.querySelectorAll('#title path')
+    
+
     // Set the width of the side navigation to 250px. 60% Opacity
     function openNav() {
         document.getElementById("mySidenav").style.width = "250px";
@@ -193,3 +197,4 @@
 </script>
 
 </html>
+    
